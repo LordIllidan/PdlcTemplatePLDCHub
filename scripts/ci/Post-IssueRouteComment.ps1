@@ -58,6 +58,10 @@ if ($null -ne $profile.repos.liquibase_db -and -not [string]::IsNullOrWhiteSpace
   $lines += ('- liquibase_db: {0}' -f $profile.repos.liquibase_db)
 }
 
+if ($null -ne $profile.repos.orchestrator -and -not [string]::IsNullOrWhiteSpace([string]$profile.repos.orchestrator)) {
+  $lines += ('- orchestrator (control repo): {0}' -f $profile.repos.orchestrator)
+}
+
 $lines += ''
 $lines += 'Agent hint: checkout and implement changes in the repositories above based on the issue scope.'
 

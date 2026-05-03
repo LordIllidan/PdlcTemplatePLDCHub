@@ -7,6 +7,7 @@
     "frontend": "https://github.com/LordIllidan/PdlcTemplateAngularFrontend",
     "backend_dotnet": "https://github.com/LordIllidan/PdlcTemplateDotNetApi",
     "gitops": "https://github.com/LordIllidan/PdlcTemplateFluxGitOps",
-    "liquibase_db": "https://github.com/LordIllidan/PdlcTemplateLiquibaseDb"
+    "liquibase_db": "https://github.com/LordIllidan/PdlcTemplateLiquibaseDb",
+    "orchestrator": "https://github.com/LordIllidan/PdlcTemplatePLDCOrchestrator"
   }
 }

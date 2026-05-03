@@ -26,14 +26,18 @@ Assert-GitHubHttpsRepoUrl ([string]$profile.repos.frontend) 'repos.frontend'
 Assert-GitHubHttpsRepoUrl ([string]$profile.repos.backend_dotnet) 'repos.backend_dotnet'
 Assert-GitHubHttpsRepoUrl ([string]$profile.repos.gitops) 'repos.gitops'
 
-$allowedRepoKeys = @('frontend', 'backend_dotnet', 'gitops', 'liquibase_db')
+if ($null -ne $profile.repos.liquibase_db -and -not [string]::IsNullOrWhiteSpace([string]$profile.repos.liquibase_db)) {
+  Assert-GitHubHttpsRepoUrl ([string]$profile.repos.liquibase_db) 'repos.liquibase_db'
+}
+
+$allowedRepoKeys = @('frontend', 'backend_dotnet', 'gitops', 'liquibase_db', 'orchestrator')
 $extra = $profile.repos.PSObject.Properties.Name | Where-Object { $_ -notin $allowedRepoKeys }
 if ($extra.Count -gt 0) {
   throw ("Unsupported repos keys: " + ($extra -join ', '))
 }
 
-if ($null -ne $profile.repos.liquibase_db -and -not [string]::IsNullOrWhiteSpace([string]$profile.repos.liquibase_db)) {
-  Assert-GitHubHttpsRepoUrl ([string]$profile.repos.liquibase_db) 'repos.liquibase_db'
+if ($null -ne $profile.repos.orchestrator -and -not [string]::IsNullOrWhiteSpace([string]$profile.repos.orchestrator)) {
+  Assert-GitHubHttpsRepoUrl ([string]$profile.repos.orchestrator) 'repos.orchestrator'
 }
 
 $relProfile = ConvertTo-RepoRelativePath -RepoRoot $repoRoot -AbsolutePath $profilePath

@@ -18,6 +18,7 @@ W pliku profilu muszą istnieć:
 Opcjonalnie:
 
 - `repos.liquibase_db` — URL repo migracji bazy (Liquibase)
+- `repos.orchestrator` — URL repo orchestratora (`*-control`; szablon `PdlcTemplatePLDCOrchestrator`)
 
 ## Zmiana aktywnego profilu
 

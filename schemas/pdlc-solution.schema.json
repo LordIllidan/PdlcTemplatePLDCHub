@@ -23,7 +23,8 @@
         "frontend": { "type": "string", "minLength": 1 },
         "backend_dotnet": { "type": "string", "minLength": 1 },
         "gitops": { "type": "string", "minLength": 1 },
-        "liquibase_db": { "type": "string", "minLength": 1 }
+        "liquibase_db": { "type": "string", "minLength": 1 },
+        "orchestrator": { "type": "string", "minLength": 1 }
       }
     }
   }
