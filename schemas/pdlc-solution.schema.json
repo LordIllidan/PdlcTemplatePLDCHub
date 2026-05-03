@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pdlc.local/schemas/pdlc-solution.schema.json",
+  "title": "PDLC solution profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project", "repos"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "code"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "code": { "type": "string", "minLength": 1, "maxLength": 32 }
+      }
+    },
+    "repos": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frontend", "backend_dotnet", "gitops"],
+      "properties": {
+        "frontend": { "type": "string", "minLength": 1 },
+        "backend_dotnet": { "type": "string", "minLength": 1 },
+        "gitops": { "type": "string", "minLength": 1 },
+        "liquibase_db": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
